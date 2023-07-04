@@ -1,0 +1,35 @@
+version: 2
+
+models:
+    - name: f_leads_stats
+      columns:
+        - name: lead_uuid
+          tests:
+            - not_null
+            - unique
+        - name: lead_hash
+          tests:
+            - not_null
+            - unique
+        - name: lead_number
+          tests:
+            - not_null
+            - unique
+        - name: email_hash
+          tests:
+            - not_null
+        - name: phone_hash
+          tests:
+            - not_null
+        - name: city
+          tests:
+            - not_null
+        - name: state
+          tests:
+            - not_null
+        - name: is_set
+          tests:
+            - not_null
+        - name: is_demo
+          tests:
+            - not_null

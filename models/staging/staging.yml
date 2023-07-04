@@ -1,0 +1,44 @@
+version: 2
+
+models:
+    - name: stg_backend_leads
+      columns:
+        - name: lead_uuid
+          tests:
+            - not_null
+            - unique
+        - name: email_hash
+          tests:
+            - not_null
+            - unique
+        - name: phone_hash
+          tests:
+            - not_null
+            - unique
+
+    - name: stg_crm_lead_progress
+      columns:
+        - name: entry_dt
+          tests:
+            - not_null
+        - name: lead_number
+          tests:
+            - not_null
+        - name: email_hash
+          tests:
+            - not_null
+        - name: phone_hash
+          tests:
+            - not_null
+        - name: city
+          tests:
+            - not_null
+        - name: state
+          tests:
+            - not_null
+        - name: is_set
+          tests:
+            - not_null
+        - name: is_demo
+          tests:
+            - not_null

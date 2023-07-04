@@ -1,0 +1,16 @@
+config:
+  send_anonymous_usage_stats: False
+  use_colors: True
+  partial_parse: True
+
+siren_demo:
+  outputs:
+    prod:
+      type: clickhouse
+      host: clickhouse
+      port: 8123
+      user: default
+      schema: analytics
+      threads: 3
+      custom_settings: { enable_positional_arguments: 1, data_type_default_nullable: 1}
+  target: prod

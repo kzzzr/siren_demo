@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+
+    - name: backend
+      database: landing
+      tables:      
+        - name: leads
+          columns:
+            - name: lead_UUID
+              tests:
+                  - not_null
+                  - unique
+            - name: phone_hash
+              tests:
+                  - not_null
+            - name: email_hash
+              tests:
+                  - not_null
+                  

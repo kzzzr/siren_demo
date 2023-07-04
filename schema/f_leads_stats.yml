@@ -1,0 +1,60 @@
+cubes:
+  - name: f_leads_stats
+    sql: SELECT * FROM analytics.f_leads_stats
+
+    measures:
+      - name: leads_num
+        sql: lead_uuid
+        type: count_distinct
+      - name: leads_converted_to_appointments_num
+        sql: lead_uuid
+        type: count_distinct
+        filters:
+          - sql: "{CUBE}.is_set = 1"
+      - name: leads_converted_to_demos_num
+        sql: lead_uuid
+        type: count_distinct
+        filters:
+          - sql: "{CUBE}.is_demo = 1"
+
+    dimensions:
+      - name: entry_dt
+        sql: 'entry_dt'
+        type: time
+      - name: appt_dt
+        sql: 'appt_dt'
+        type: time
+
+      - name: is_set
+        sql: 'is_set'
+        type: boolean
+      - name: is_demo
+        sql: 'is_demo'
+        type: boolean
+
+      - name: city
+        sql: city
+        type: string
+      - name: state
+        sql: state
+        type: string
+      - name: zip
+        sql: zip
+        type: string
+      - name: dispo
+        sql: dispo
+        type: string
+      - name: job_status
+        sql: job_status
+        type: string
+      - name: lead_uuid
+        sql: lead_uuid
+        type: string
+      - name: email_hash
+        sql: email_hash
+        type: string
+      - name: phone_hash
+        sql: phone_hash
+        type: string
+        
+    dataSource: default

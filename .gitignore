@@ -1,0 +1,12 @@
+
+target/
+dbt_packages/
+logs/
+
+.env
+
+/metabase/plugins/*
+
+.DS_Store
+
+.cubestore/
